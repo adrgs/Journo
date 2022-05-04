@@ -9,21 +9,45 @@
 /* Begin PBXBuildFile section */
 		568FE36D2822B342001257CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE36C2822B342001257CD /* AppDelegate.swift */; };
 		568FE36F2822B342001257CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE36E2822B342001257CD /* SceneDelegate.swift */; };
-		568FE3712822B342001257CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3702822B342001257CD /* ViewController.swift */; };
+		568FE3712822B342001257CD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3702822B342001257CD /* HomeViewController.swift */; };
 		568FE3742822B342001257CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 568FE3722822B342001257CD /* Main.storyboard */; };
 		568FE3762822B343001257CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 568FE3752822B343001257CD /* Assets.xcassets */; };
 		568FE3792822B343001257CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 568FE3772822B343001257CD /* LaunchScreen.storyboard */; };
+		568FE3882822B4CE001257CD /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3872822B4CE001257CD /* ExploreViewController.swift */; };
+		568FE38A2822B4E3001257CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3892822B4E3001257CD /* CameraViewController.swift */; };
+		568FE38C2822B4ED001257CD /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE38B2822B4ED001257CD /* NotificationViewController.swift */; };
+		568FE38E2822B4F5001257CD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE38D2822B4F5001257CD /* ProfileViewController.swift */; };
+		568FE3932822B59B001257CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3922822B59B001257CD /* LoginViewController.swift */; };
+		568FE3952822B5AD001257CD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3942822B5AD001257CD /* RegisterViewController.swift */; };
+		568FE3972822B5BD001257CD /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3962822B5BD001257CD /* PostViewController.swift */; };
+		568FE3992822B5D4001257CD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3982822B5D4001257CD /* ListViewController.swift */; };
+		568FE39B2822B5DF001257CD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE39A2822B5DF001257CD /* SearchViewController.swift */; };
+		568FE39D2822B5ED001257CD /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE39C2822B5ED001257CD /* SearchResultViewController.swift */; };
+		568FE39F2822B607001257CD /* PostEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE39E2822B607001257CD /* PostEditorViewController.swift */; };
+		568FE3A12822B61A001257CD /* PublishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3A02822B61A001257CD /* PublishPostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		568FE3692822B341001257CD /* Journo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		568FE36C2822B342001257CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		568FE36E2822B342001257CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		568FE3702822B342001257CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		568FE3702822B342001257CD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		568FE3732822B342001257CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		568FE3752822B343001257CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		568FE3782822B343001257CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		568FE37A2822B343001257CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		568FE3872822B4CE001257CD /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		568FE3892822B4E3001257CD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		568FE38B2822B4ED001257CD /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		568FE38D2822B4F5001257CD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		568FE3922822B59B001257CD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		568FE3942822B5AD001257CD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		568FE3962822B5BD001257CD /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		568FE3982822B5D4001257CD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		568FE39A2822B5DF001257CD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		568FE39C2822B5ED001257CD /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		568FE39E2822B607001257CD /* PostEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorViewController.swift; sourceTree = "<group>"; };
+		568FE3A02822B61A001257CD /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +80,91 @@
 		568FE36B2822B341001257CD /* Journo */ = {
 			isa = PBXGroup;
 			children = (
-				568FE36C2822B342001257CD /* AppDelegate.swift */,
-				568FE36E2822B342001257CD /* SceneDelegate.swift */,
-				568FE3702822B342001257CD /* ViewController.swift */,
-				568FE3722822B342001257CD /* Main.storyboard */,
-				568FE3752822B343001257CD /* Assets.xcassets */,
-				568FE3772822B343001257CD /* LaunchScreen.storyboard */,
+				568FE3832822B36D001257CD /* Resources */,
+				568FE3822822B364001257CD /* Models */,
+				568FE3812822B35C001257CD /* Views */,
+				568FE3802822B355001257CD /* Controllers */,
 				568FE37A2822B343001257CD /* Info.plist */,
 			);
 			path = Journo;
+			sourceTree = "<group>";
+		};
+		568FE3802822B355001257CD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				568FE3902822B587001257CD /* Other */,
+				568FE38F2822B55E001257CD /* Core Tabs */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		568FE3812822B35C001257CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				568FE3752822B343001257CD /* Assets.xcassets */,
+				568FE3842822B394001257CD /* Storyboards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		568FE3822822B364001257CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		568FE3832822B36D001257CD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				568FE36E2822B342001257CD /* SceneDelegate.swift */,
+				568FE36C2822B342001257CD /* AppDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		568FE3842822B394001257CD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				568FE3722822B342001257CD /* Main.storyboard */,
+				568FE3772822B343001257CD /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		568FE38F2822B55E001257CD /* Core Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				568FE3702822B342001257CD /* HomeViewController.swift */,
+				568FE3872822B4CE001257CD /* ExploreViewController.swift */,
+				568FE3892822B4E3001257CD /* CameraViewController.swift */,
+				568FE38B2822B4ED001257CD /* NotificationViewController.swift */,
+				568FE38D2822B4F5001257CD /* ProfileViewController.swift */,
+			);
+			path = "Core Tabs";
+			sourceTree = "<group>";
+		};
+		568FE3902822B587001257CD /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				568FE3912822B58D001257CD /* Onboarding */,
+				568FE3962822B5BD001257CD /* PostViewController.swift */,
+				568FE3982822B5D4001257CD /* ListViewController.swift */,
+				568FE39A2822B5DF001257CD /* SearchViewController.swift */,
+				568FE39C2822B5ED001257CD /* SearchResultViewController.swift */,
+				568FE39E2822B607001257CD /* PostEditorViewController.swift */,
+				568FE3A02822B61A001257CD /* PublishPostViewController.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		568FE3912822B58D001257CD /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				568FE3922822B59B001257CD /* LoginViewController.swift */,
+				568FE3942822B5AD001257CD /* RegisterViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +238,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				568FE3712822B342001257CD /* ViewController.swift in Sources */,
+				568FE3952822B5AD001257CD /* RegisterViewController.swift in Sources */,
+				568FE39F2822B607001257CD /* PostEditorViewController.swift in Sources */,
+				568FE3882822B4CE001257CD /* ExploreViewController.swift in Sources */,
+				568FE38A2822B4E3001257CD /* CameraViewController.swift in Sources */,
+				568FE38C2822B4ED001257CD /* NotificationViewController.swift in Sources */,
+				568FE3972822B5BD001257CD /* PostViewController.swift in Sources */,
+				568FE3992822B5D4001257CD /* ListViewController.swift in Sources */,
+				568FE39B2822B5DF001257CD /* SearchViewController.swift in Sources */,
+				568FE3712822B342001257CD /* HomeViewController.swift in Sources */,
+				568FE3932822B59B001257CD /* LoginViewController.swift in Sources */,
+				568FE3A12822B61A001257CD /* PublishPostViewController.swift in Sources */,
+				568FE38E2822B4F5001257CD /* ProfileViewController.swift in Sources */,
 				568FE36D2822B342001257CD /* AppDelegate.swift in Sources */,
+				568FE39D2822B5ED001257CD /* SearchResultViewController.swift in Sources */,
 				568FE36F2822B342001257CD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
