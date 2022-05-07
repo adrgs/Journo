@@ -97,7 +97,7 @@ final class EditProfileViewController: UIViewController {
     }
     
     @objc private func didClickSave() {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     @objc private func didClickCancel() {
@@ -138,7 +138,11 @@ final class EditProfileViewController: UIViewController {
 }
 
 
-extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource {
+extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource, FormTableViewCellDelegate {
+    func formTableViewCell(_ cell: FormTableViewCell, didUpdateField updatedModel: EditProfileFormModel) {
+
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return models.count
     }
@@ -151,6 +155,7 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource 
         let model = models[indexPath.section][indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: FormTableViewCell.identifier, for: indexPath) as! FormTableViewCell
         cell.configure(model: model)
+        cell.delegate = self
         //cell.textLabel?.text = model.label
         return cell
     }
