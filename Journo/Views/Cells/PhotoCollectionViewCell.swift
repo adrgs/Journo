@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     static let identifier = "PhotoCollectionViewCell"
@@ -30,14 +31,18 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     public func configure(model: UserPost) {
         let thumbnailURL = model.thumbnailImage
+        photoImageView.sd_setImage(with: thumbnailURL, completed: nil)
     }
     
-    public func configure(imageName: String) {g
+    public func configure(imageName: String) {
         photoImageView.image = UIImage(named: imageName)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        contentView.backgroundColor = .secondarySystemBackground
+        
         contentView.addSubview(photoImageView)
         contentView.clipsToBounds = true
         accessibilityLabel = "User post image"
