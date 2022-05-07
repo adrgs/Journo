@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 struct SettingCellModel {
     let title: String
@@ -25,12 +26,77 @@ final class SettingsViewController: UIViewController {
     private var data = [[SettingCellModel]]()
     
     private func configureModels() {
-        let section = [
+        
+        data.append([
+            SettingCellModel(title:"Edit Profile") { [weak self] in
+                self?.didClickEditProfile()
+            },
+            SettingCellModel(title:"Invite Friends") { [weak self] in
+                self?.didClickInviteFriends()
+            },
+            SettingCellModel(title:"Save Original Posts") { [weak self] in
+                self?.didClickSaveOriginalPosts()
+            },
+        ])
+        
+        data.append([
+            SettingCellModel(title:"Terms of Service") { [weak self] in
+                self?.didClickTermsOfService()
+            },
+            SettingCellModel(title:"Privacy Policy") { [weak self] in
+                self?.didClickPrivacyPolicy()
+            },
+            SettingCellModel(title:"Help / Feedback") { [weak self] in
+                self?.didClickHelpFeedback()
+            },
+        ])
+        
+        data.append([
             SettingCellModel(title:"Log Out") { [weak self] in
                 self?.didClickLogOut()
             }
-        ]
-        data.append(section)
+        ])
+    }
+    
+    private func didClickEditProfile() {
+        
+    }
+    
+    private func didClickInviteFriends() {
+        
+    }
+    
+    private func didClickSaveOriginalPosts() {
+        let vc = EditProfileViewController()
+        vc.title = "Edit Profile"
+        
+        let navVC = UINavigationController(rootViewController: vc)
+        
+        present(navVC, animated: true)
+    }
+    
+    private func didClickTermsOfService() {
+        guard let url = URL(string:"https://policies.google.com/terms") else {
+            return
+        }
+        let vc = SFSafariViewController(url:url)
+        present(vc, animated: true)
+    }
+    
+    private func didClickPrivacyPolicy() {
+        guard let url = URL(string:"https://policies.google.com/privacy") else {
+            return
+        }
+        let vc = SFSafariViewController(url:url)
+        present(vc, animated: true)
+    }
+    
+    private func didClickHelpFeedback() {
+        guard let url = URL(string:"https://www.google.com/tools/feedback") else {
+            return
+        }
+        let vc = SFSafariViewController(url:url)
+        present(vc, animated: true)
     }
     
     private func didClickLogOut() {
@@ -94,6 +160,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.section][indexPath.row].title
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     

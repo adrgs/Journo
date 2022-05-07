@@ -36,6 +36,7 @@
 		569513DA28270DCC004C5A9F /* FeedPostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569513D928270DCC004C5A9F /* FeedPostHeaderTableViewCell.swift */; };
 		569513DC28270DE2004C5A9F /* FeedPostActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569513DB28270DE2004C5A9F /* FeedPostActionsTableViewCell.swift */; };
 		569513DE28270DF4004C5A9F /* FeedPostGeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569513DD28270DF4004C5A9F /* FeedPostGeneralTableViewCell.swift */; };
+		569513E0282711C1004C5A9F /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569513DF282711C1004C5A9F /* EditProfileViewController.swift */; };
 		FA32E8316440167505F748FA /* Pods_Journo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F38C04E083C1B941ABC9F5E /* Pods_Journo.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		569513D928270DCC004C5A9F /* FeedPostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		569513DB28270DE2004C5A9F /* FeedPostActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostActionsTableViewCell.swift; sourceTree = "<group>"; };
 		569513DD28270DF4004C5A9F /* FeedPostGeneralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostGeneralTableViewCell.swift; sourceTree = "<group>"; };
+		569513DF282711C1004C5A9F /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		7F38C04E083C1B941ABC9F5E /* Pods_Journo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Journo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		962D308ADD589003BD7FD7B5 /* Pods-Journo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journo.debug.xcconfig"; path = "Target Support Files/Pods-Journo/Pods-Journo.debug.xcconfig"; sourceTree = "<group>"; };
 		A9DE2095B4C14CB51E96E5DD /* Pods-Journo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journo.release.xcconfig"; path = "Target Support Files/Pods-Journo/Pods-Journo.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				568FE39E2822B607001257CD /* PostEditorViewController.swift */,
 				568FE3A02822B61A001257CD /* PublishPostViewController.swift */,
 				569513D32826FA9D004C5A9F /* SettingsViewController.swift */,
+				569513DF282711C1004C5A9F /* EditProfileViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				569513E0282711C1004C5A9F /* EditProfileViewController.swift in Sources */,
 				568FE3952822B5AD001257CD /* RegisterViewController.swift in Sources */,
 				568FE39F2822B607001257CD /* PostEditorViewController.swift in Sources */,
 				569513D42826FA9D004C5A9F /* SettingsViewController.swift in Sources */,
