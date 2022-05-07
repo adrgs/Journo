@@ -25,6 +25,11 @@
 		568FE39D2822B5ED001257CD /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE39C2822B5ED001257CD /* SearchResultViewController.swift */; };
 		568FE39F2822B607001257CD /* PostEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE39E2822B607001257CD /* PostEditorViewController.swift */; };
 		568FE3A12822B61A001257CD /* PublishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3A02822B61A001257CD /* PublishPostViewController.swift */; };
+		568FE3A32826AA26001257CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 568FE3A22826AA26001257CD /* GoogleService-Info.plist */; };
+		568FE3A62826AC1E001257CD /* FirebaseDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3A52826AC1E001257CD /* FirebaseDatabaseManager.swift */; };
+		568FE3A82826AC79001257CD /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3A72826AC79001257CD /* AuthManager.swift */; };
+		568FE3AA2826ACF4001257CD /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3A92826ACF4001257CD /* StorageManager.swift */; };
+		FA32E8316440167505F748FA /* Pods_Journo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F38C04E083C1B941ABC9F5E /* Pods_Journo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +53,13 @@
 		568FE39C2822B5ED001257CD /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		568FE39E2822B607001257CD /* PostEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorViewController.swift; sourceTree = "<group>"; };
 		568FE3A02822B61A001257CD /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
+		568FE3A22826AA26001257CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		568FE3A52826AC1E001257CD /* FirebaseDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseManager.swift; sourceTree = "<group>"; };
+		568FE3A72826AC79001257CD /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		568FE3A92826ACF4001257CD /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		7F38C04E083C1B941ABC9F5E /* Pods_Journo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Journo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		962D308ADD589003BD7FD7B5 /* Pods-Journo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journo.debug.xcconfig"; path = "Target Support Files/Pods-Journo/Pods-Journo.debug.xcconfig"; sourceTree = "<group>"; };
+		A9DE2095B4C14CB51E96E5DD /* Pods-Journo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journo.release.xcconfig"; path = "Target Support Files/Pods-Journo/Pods-Journo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,17 +67,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA32E8316440167505F748FA /* Pods_Journo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05CDBA0B9837CD2C15B7B5BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F38C04E083C1B941ABC9F5E /* Pods_Journo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		434098E7924F39337A5855A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				962D308ADD589003BD7FD7B5 /* Pods-Journo.debug.xcconfig */,
+				A9DE2095B4C14CB51E96E5DD /* Pods-Journo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		568FE3602822B341001257CD = {
 			isa = PBXGroup;
 			children = (
 				568FE36B2822B341001257CD /* Journo */,
 				568FE36A2822B341001257CD /* Products */,
+				434098E7924F39337A5855A9 /* Pods */,
+				05CDBA0B9837CD2C15B7B5BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,8 +149,12 @@
 		568FE3832822B36D001257CD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				568FE3A22826AA26001257CD /* GoogleService-Info.plist */,
 				568FE36E2822B342001257CD /* SceneDelegate.swift */,
 				568FE36C2822B342001257CD /* AppDelegate.swift */,
+				568FE3A52826AC1E001257CD /* FirebaseDatabaseManager.swift */,
+				568FE3A72826AC79001257CD /* AuthManager.swift */,
+				568FE3A92826ACF4001257CD /* StorageManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -148,12 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				568FE3912822B58D001257CD /* Onboarding */,
-				568FE3962822B5BD001257CD /* PostViewController.swift */,
-				568FE3982822B5D4001257CD /* ListViewController.swift */,
-				568FE39A2822B5DF001257CD /* SearchViewController.swift */,
-				568FE39C2822B5ED001257CD /* SearchResultViewController.swift */,
-				568FE39E2822B607001257CD /* PostEditorViewController.swift */,
-				568FE3A02822B61A001257CD /* PublishPostViewController.swift */,
+				568FE3A42826ABF6001257CD /* General */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -167,6 +198,19 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		568FE3A42826ABF6001257CD /* General */ = {
+			isa = PBXGroup;
+			children = (
+				568FE3962822B5BD001257CD /* PostViewController.swift */,
+				568FE3982822B5D4001257CD /* ListViewController.swift */,
+				568FE39A2822B5DF001257CD /* SearchViewController.swift */,
+				568FE39C2822B5ED001257CD /* SearchResultViewController.swift */,
+				568FE39E2822B607001257CD /* PostEditorViewController.swift */,
+				568FE3A02822B61A001257CD /* PublishPostViewController.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,9 +218,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 568FE37D2822B343001257CD /* Build configuration list for PBXNativeTarget "Journo" */;
 			buildPhases = (
+				4604CEAB90B102E9C5B2D03C /* [CP] Check Pods Manifest.lock */,
 				568FE3652822B341001257CD /* Sources */,
 				568FE3662822B341001257CD /* Frameworks */,
 				568FE3672822B341001257CD /* Resources */,
+				7D7538C74E587028B6CEF358 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,12 +272,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				568FE3792822B343001257CD /* LaunchScreen.storyboard in Resources */,
+				568FE3A32826AA26001257CD /* GoogleService-Info.plist in Resources */,
 				568FE3762822B343001257CD /* Assets.xcassets in Resources */,
 				568FE3742822B342001257CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4604CEAB90B102E9C5B2D03C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Journo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D7538C74E587028B6CEF358 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Journo/Pods-Journo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Journo/Pods-Journo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Journo/Pods-Journo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		568FE3652822B341001257CD /* Sources */ = {
@@ -241,12 +330,15 @@
 				568FE3952822B5AD001257CD /* RegisterViewController.swift in Sources */,
 				568FE39F2822B607001257CD /* PostEditorViewController.swift in Sources */,
 				568FE3882822B4CE001257CD /* ExploreViewController.swift in Sources */,
+				568FE3AA2826ACF4001257CD /* StorageManager.swift in Sources */,
 				568FE38A2822B4E3001257CD /* CameraViewController.swift in Sources */,
 				568FE38C2822B4ED001257CD /* NotificationViewController.swift in Sources */,
 				568FE3972822B5BD001257CD /* PostViewController.swift in Sources */,
 				568FE3992822B5D4001257CD /* ListViewController.swift in Sources */,
+				568FE3A82826AC79001257CD /* AuthManager.swift in Sources */,
 				568FE39B2822B5DF001257CD /* SearchViewController.swift in Sources */,
 				568FE3712822B342001257CD /* HomeViewController.swift in Sources */,
+				568FE3A62826AC1E001257CD /* FirebaseDatabaseManager.swift in Sources */,
 				568FE3932822B59B001257CD /* LoginViewController.swift in Sources */,
 				568FE3A12822B61A001257CD /* PublishPostViewController.swift in Sources */,
 				568FE38E2822B4F5001257CD /* ProfileViewController.swift in Sources */,
@@ -396,6 +488,7 @@
 		};
 		568FE37E2822B343001257CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 962D308ADD589003BD7FD7B5 /* Pods-Journo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -423,6 +516,7 @@
 		};
 		568FE37F2822B343001257CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9DE2095B4C14CB51E96E5DD /* Pods-Journo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
