@@ -7,6 +7,7 @@
 
 import UIKit
 import SafariServices
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -170,7 +171,31 @@ class LoginViewController: UIViewController {
             return
         }
         
+        var email: String?
+        var username: String?
+        
         // login functionality
+        if usernameEmail.contains("@"), usernameEmail.contains(".") {
+            email = usernameEmail
+        } else {
+            username = usernameEmail
+        }
+        
+        AuthManager.shared.loginUser(username: username, email: email, password: password) { success in
+            DispatchQueue.main.async {
+                if success {
+                    self.dismiss(animated:true, completion: nil)
+                }
+                else {
+                    let alert = UIAlertController(title: "Log In Error", message: "Unable to log in", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title:"Dismiss", style: .cancel, handler: nil))
+                    
+                    self.present(alert, animated: true)
+                }
+            }
+        }
+        
     }
     
     @objc private func didClickCreateAccountButton() {
