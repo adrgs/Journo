@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class LoginViewController: UIViewController {
     
@@ -122,7 +123,7 @@ class LoginViewController: UIViewController {
         
         headerView.frame = CGRect(x: 0, y: 0, width: view.width, height: view.height / 3.0)
         
-        usernameEmailField.frame = CGRect(x: 25, y: headerView.bottom + 10, width: view.width-50, height: 52)
+        usernameEmailField.frame = CGRect(x: 25, y: headerView.bottom + 30, width: view.width-50, height: 52)
         passwordField.frame = CGRect(x: 25, y: usernameEmailField.bottom + 10, width: view.width-50, height: 52)
         loginButton.frame = CGRect(x: 25, y: passwordField.bottom + 10, width: view.width-50, height: 52)
         createAccountButton.frame = CGRect(x: 25, y: loginButton.bottom + 10, width: view.width-50, height: 52)
@@ -163,13 +164,35 @@ class LoginViewController: UIViewController {
     @objc private func didClickLoginButton() {
         passwordField.resignFirstResponder()
         usernameEmailField.resignFirstResponder()
+        
+        guard let usernameEmail = usernameEmailField.text, !usernameEmail.isEmpty,
+              let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
+            return
+        }
+        
+        // login functionality
     }
     
-    @objc private func didClickCreateAccountButton() {}
+    @objc private func didClickCreateAccountButton() {
+        let vc = RegisterViewController()
+        present(vc, animated: true)
+    }
     
-    @objc private func didClickTermsButton() {}
+    @objc private func didClickTermsButton() {
+        guard let url = URL(string:"https://policies.google.com/terms") else {
+            return
+        }
+        let vc = SFSafariViewController(url:url)
+        present(vc, animated: true)
+    }
     
-    @objc private func didClickPrivacyButton() {}
+    @objc private func didClickPrivacyButton() {
+        guard let url = URL(string:"https://policies.google.com/privacy") else {
+            return
+        }
+        let vc = SFSafariViewController(url:url)
+        present(vc, animated: true)
+    }
 
 }
 
