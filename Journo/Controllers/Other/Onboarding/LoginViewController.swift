@@ -200,7 +200,9 @@ class LoginViewController: UIViewController {
     
     @objc private func didClickCreateAccountButton() {
         let vc = RegisterViewController()
-        present(vc, animated: true)
+        vc.title = "Create Account"
+        
+        present(UINavigationController(rootViewController: vc), animated: true)
     }
     
     @objc private func didClickTermsButton() {
