@@ -11,6 +11,7 @@
 		56150C4A2827322F00F55283 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56150C492827322F00F55283 /* PhotoCollectionViewCell.swift */; };
 		56150C4C2827325C00F55283 /* ProfileInfoHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56150C4B2827325C00F55283 /* ProfileInfoHeaderCollectionReusableView.swift */; };
 		56150C4E2827327000F55283 /* ProfileTabsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56150C4D2827327000F55283 /* ProfileTabsCollectionReusableView.swift */; };
+		56150C5028273E6100F55283 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56150C4F28273E6100F55283 /* Models.swift */; };
 		568FE36D2822B342001257CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE36C2822B342001257CD /* AppDelegate.swift */; };
 		568FE36F2822B342001257CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE36E2822B342001257CD /* SceneDelegate.swift */; };
 		568FE3712822B342001257CD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568FE3702822B342001257CD /* HomeViewController.swift */; };
@@ -49,6 +50,7 @@
 		56150C492827322F00F55283 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		56150C4B2827325C00F55283 /* ProfileInfoHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		56150C4D2827327000F55283 /* ProfileTabsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabsCollectionReusableView.swift; sourceTree = "<group>"; };
+		56150C4F28273E6100F55283 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		568FE3692822B341001257CD /* Journo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		568FE36C2822B342001257CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		568FE36E2822B342001257CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		568FE3822822B364001257CD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				56150C4F28273E6100F55283 /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				568FE3AC2826AE3F001257CD /* DatabaseManager.swift in Sources */,
 				569513D22826DE97004C5A9F /* Extensions.swift in Sources */,
 				569513DE28270DF4004C5A9F /* FeedPostGeneralTableViewCell.swift in Sources */,
+				56150C5028273E6100F55283 /* Models.swift in Sources */,
 				568FE38E2822B4F5001257CD /* ProfileViewController.swift in Sources */,
 				568FE36D2822B342001257CD /* AppDelegate.swift in Sources */,
 				568FE39D2822B5ED001257CD /* SearchResultViewController.swift in Sources */,
