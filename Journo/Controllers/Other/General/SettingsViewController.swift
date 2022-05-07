@@ -59,7 +59,12 @@ final class SettingsViewController: UIViewController {
     }
     
     private func didClickEditProfile() {
+        let vc = EditProfileViewController()
+        vc.title = "Edit Profile"
         
+        let navVC = UINavigationController(rootViewController: vc)
+        
+        present(navVC, animated: true)
     }
     
     private func didClickInviteFriends() {
@@ -67,12 +72,7 @@ final class SettingsViewController: UIViewController {
     }
     
     private func didClickSaveOriginalPosts() {
-        let vc = EditProfileViewController()
-        vc.title = "Edit Profile"
-        
-        let navVC = UINavigationController(rootViewController: vc)
-        
-        present(navVC, animated: true)
+
     }
     
     private func didClickTermsOfService() {
