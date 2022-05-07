@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r2k-RQ-g9D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r2k-RQ-g9D">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,7 +51,7 @@
         <scene sceneID="wkM-fh-q7n">
             <objects>
                 <navigationController id="gEE-sC-BcB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="binoculars" catalog="system" id="RlV-2I-35X"/>
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="RlV-2I-35X"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mkw-AR-9hV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -198,8 +198,8 @@
     </scenes>
     <resources>
         <image name="bell" catalog="system" width="128" height="124"/>
-        <image name="binoculars" catalog="system" width="128" height="90"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
