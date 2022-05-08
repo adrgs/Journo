@@ -26,8 +26,7 @@ class FeedPostTableViewCell: UITableViewCell {
     private let photoImageView: UIImageView = {
         let imageView = UIImageView()
         
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.image = nil
         
         return imageView
@@ -49,6 +48,7 @@ class FeedPostTableViewCell: UITableViewCell {
         self.model = model
         nameLabel.text = model.username
         profileImageView.sd_setImage(with: URL(string:model.profileUrl ?? "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png"), completed: nil)
+        photoImageView.sd_setImage(with: URL(string:model.thumbnailImage ?? "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png"), completed: nil)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -63,14 +63,13 @@ class FeedPostTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        profileImageView.frame = CGRect(x: 3, y: 3, width: contentView.height-6, height: contentView.height-6)
-        profileImageView.layer.cornerRadius = profileImageView.height/2
+        profileImageView.frame = CGRect(x: 3, y: 3, width: 40, height: 40)
+        profileImageView.layer.cornerRadius = 20
         
         
-        let labelHeight = contentView.height/2
-        nameLabel.frame = CGRect(x: profileImageView.right+5, y: 0, width: contentView.width-8, height: labelHeight)
+        nameLabel.frame = CGRect(x: profileImageView.right+5, y: 15, width: contentView.width-8, height: 15)
         
-        photoImageView.frame = CGRect(x: 3, y: profileImageView.bottom, width: contentView.width-3, height: contentView.width-3)
+        photoImageView.frame = CGRect(x: 50, y: profileImageView.bottom+15, width: 200, height: 200)
     }
     
     required init?(coder: NSCoder) {

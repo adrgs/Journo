@@ -30,6 +30,8 @@ public class AuthManager {
                             return
                         }
                     }
+                    let _ = DatabaseManager.shared.registerUser(username: username, email: email, website: nil, bio: nil, phone: nil, gender: nil, pictureUrl: nil)
+                    
                     completion(true)
                 }
             } else {

@@ -49,7 +49,9 @@ class HomeViewController: UIViewController {
                     let tasks = try decoder.decode([Post].self, from: data)
                     tasks.forEach{ i in
                         self.postData.append(UserPost(username: i.id, profileUrl: i.url, pictureUrl: i.url, imageUrl: i.url, thumbnailImage: i.url))
-                        print(self.postData.count)
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
                     }
                 }catch{
                     print(error)
@@ -68,6 +70,8 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         DatabaseManager.shared.initDatabase()
         
+        postData = DatabaseManager.shared.getAllPosts()
+        
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
@@ -82,7 +86,6 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         handleNotAuthenticated()
         decodeAPI()
-        tableView.reloadData()
     }
     
     private func handleNotAuthenticated() {
@@ -118,6 +121,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 300
     }
 }
