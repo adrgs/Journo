@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol ProfileInfoHeaderCollectionReusableViewDelegate: AnyObject {
     func profileHeaderDidClickPostsButton(_ header: ProfileInfoHeaderCollectionReusableView)
@@ -56,7 +57,7 @@ class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
 
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Joe Smith"
+        label.text = Auth.auth().currentUser!.email!
         label.textColor = .label
         label.numberOfLines = 1
         return label

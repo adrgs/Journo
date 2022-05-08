@@ -31,7 +31,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     public func configure(model: UserPost) {
         let thumbnailURL = model.thumbnailImage
-        photoImageView.sd_setImage(with: thumbnailURL, completed: nil)
+        photoImageView.sd_setImage(with: URL(string:thumbnailURL), completed: nil)
     }
     
     public func configure(imageName: String) {

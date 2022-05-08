@@ -30,18 +30,6 @@ public enum UserPostType {
     case photo, video
 }
 
-public struct UserPost {
-    let identifier: String
-    let postType: UserPostType
-    let thumbnailImage: URL
-    let postUR: URL
-    let caption: String?
-    let likeCount: [PostLikes]
-    let comments: [PostComment]
-    let createdDate: Date
-    let taggedUsers: [User]
-}
-
 public struct PostLikes {
     let username: String
     let postIdentifier: String

@@ -11,12 +11,14 @@ class PostViewController: UIViewController {
 
     private let model: UserPost?
     
-    private let tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+    private let photoImageView: UIImageView = {
+        let imageView = UIImageView()
         
-        // tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = nil
         
-        return tableView
+        return imageView
     }()
     
     init(model: UserPost?) {
@@ -33,9 +35,10 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
 
-        view.addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
+        view.addSubview(photoImageView)
+        photoImageView.frame = CGRect(x: 10, y: 100, width: view.width - 20, height: view.width - 20)
+        
+        photoImageView.sd_setImage(with: URL(string:model!.pictureUrl))
         // Do any additional setup after loading the view.
     }
     
@@ -50,22 +53,4 @@ class PostViewController: UIViewController {
     }
     */
 
-}
-
-extension PostViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
 }

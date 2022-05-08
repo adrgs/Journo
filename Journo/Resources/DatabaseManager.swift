@@ -83,6 +83,23 @@ public class DatabaseManager {
         return -1
     }
     
+    public func getEmail(uid: Int64) -> String {
+        let users = Table("users")
+        let emailCol = Expression<String>("email")
+        let id = Expression<Int64>("id")
+        
+        do {
+            for user in try db!.prepare(users.filter(id == uid)) {
+                return user[emailCol]
+            }
+        } catch {
+            print("Get Id Error")
+            print(error)
+        }
+        
+        return "invalid email"
+    }
+    
     public func getUsers(uid: Int64) -> [UserRelationship] {
         var userRelationships: [UserRelationship] = []
         
@@ -180,6 +197,48 @@ public class DatabaseManager {
             print("Unfollow User Error")
             print(error)
         }
+    }
+    
+    public func getAllPosts() -> [UserPost] {
+        var s: [UserPost] = []
+        
+        do {
+            let posts = Table("posts")
+            let idUser = Expression<Int64>("idUser")
+            let imgUrl = Expression<String>("imgUrl")
+            
+            for post in try db!.prepare(posts) {
+                s.append(
+                    UserPost(username: getEmail(uid: post[idUser]), pictureUrl: post[imgUrl], imageUrl: post[imgUrl], thumbnailImage: post[imgUrl])
+                )
+            }
+        } catch {
+            print("Register User Error")
+            print(error)
+        }
+        
+        return s
+    }
+    
+    public func getPosts(uid: Int64) -> [UserPost] {
+        var s: [UserPost] = []
+        
+        do {
+            let posts = Table("posts")
+            let idUser = Expression<Int64>("idUser")
+            let imgUrl = Expression<String>("imgUrl")
+            
+            for post in try db!.prepare(posts.filter(idUser == uid)) {
+                s.append(
+                    UserPost(username: getEmail(uid: post[idUser]), pictureUrl: post[imgUrl], imageUrl: post[imgUrl], thumbnailImage: post[imgUrl])
+                )
+            }
+        } catch {
+            print("Register User Error")
+            print(error)
+        }
+        
+        return s
     }
     
     public func createPost(uid: Int64, url: String) -> Int64 {

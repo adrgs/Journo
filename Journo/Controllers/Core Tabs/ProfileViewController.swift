@@ -12,9 +12,15 @@ class ProfileViewController: UIViewController {
     private var collectionView: UICollectionView?
     private var userPosts = [UserPost]()
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        userPosts = DatabaseManager.shared.getPosts(uid: DatabaseManager.shared.getId(email: Auth.auth().currentUser!.email!))
+        
         view.backgroundColor = .systemBackground
         configureNavigationBar()
         // Do any additional setup after loading the view.
@@ -77,16 +83,15 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         if section == 0 {
             return 0
         }
-        // return userPosts.count
-        return 30
+        return userPosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // let model = userPosts[indexPath.row]
+        let model = userPosts[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
         
-        // cell.configure(model: model)
-        cell.configure(imageName: "test")
+        cell.configure(model: model)
+        // cell.configure(imageName: "test")
         
         return cell
     }
@@ -94,9 +99,9 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        // let model = userPosts[indexPath.row]
+        let model = userPosts[indexPath.row]
         
-        let vc = PostViewController(model:nil)
+        let vc = PostViewController(model:model)
         vc.title = "Post"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
