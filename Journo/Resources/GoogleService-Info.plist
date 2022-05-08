@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>997115990327-2qtqs1d7nqak6s3mhpm7t0urktetimh9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.997115990327-2qtqs1d7nqak6s3mhpm7t0urktetimh9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDWXlqMnRBkCD5OtNtdmSJTqSMU8tr1E48</string>
+	<key>GCM_SENDER_ID</key>
+	<string>997115990327</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.proiectios.Journo</string>
+	<key>PROJECT_ID</key>
+	<string>journo-f422c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>journo-f422c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:997115990327:ios:ea534251c529f1bebb8ab2</string>
+</dict>
+</plist>
