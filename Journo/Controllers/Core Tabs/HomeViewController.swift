@@ -16,6 +16,11 @@ public struct Post:Codable{
     let height: Int64
 }
 
+public struct Dog:Codable{
+    let message: String
+    let status: String
+}
+
 public struct UserPost {
     let username: String
     let profileUrl: String?
@@ -61,6 +66,29 @@ class HomeViewController: UIViewController {
         task.resume()
 
     }
+    
+    func dogAPI() {
+        guard let url = URL(string: "https://dog.ceo/api/breeds/image/random") else{return}
+
+        let task = URLSession.shared.dataTask(with: url){
+            data, response, error in
+            
+            let decoder = JSONDecoder()
+
+            if let data = data{
+                do{
+                    let task = try decoder.decode(Dog.self, from: data)
+                    self.postData.append(UserPost(username: "Dog", profileUrl: task.message, pictureUrl: task.message, imageUrl: task.message, thumbnailImage: task.message))
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }catch{
+                    print(error)
+                }
+            }
+        }
+        task.resume()
+    }
 
     
     override func viewDidLoad() {
@@ -71,6 +99,8 @@ class HomeViewController: UIViewController {
         DatabaseManager.shared.initDatabase()
         
         postData = DatabaseManager.shared.getAllPosts()
+        decodeAPI()
+        dogAPI()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -86,6 +116,7 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         handleNotAuthenticated()
         decodeAPI()
+        dogAPI()
     }
     
     private func handleNotAuthenticated() {

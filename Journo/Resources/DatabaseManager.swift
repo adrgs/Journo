@@ -100,6 +100,36 @@ public class DatabaseManager {
         return "invalid email"
     }
     
+    public func updateColumnUser(uid: Int64, col: String, value: String?) {
+        let users = Table("users")
+        let id = Expression<Int64>("id")
+        let column = Expression<String?>(col)
+        
+        do {
+            let user = users.filter(id == uid)
+            try db!.run(user.update(column <- value))
+        } catch {
+            print("Get Id Error")
+            print(error)
+        }
+    }
+    
+    public func updateProfilePicture(uid: Int64, url: String) -> String? {
+        let users = Table("users")
+        let id = Expression<Int64>("id")
+        let pictureUrl = Expression<String?>("pictureUrl")
+        
+        do {
+            let user = users.filter(id == uid)
+            try db!.run(user.update(pictureUrl <- url))
+        } catch {
+            print("Get Id Error")
+            print(error)
+        }
+        
+        return nil
+    }
+    
     public func getProfilePicture(uid: Int64) -> String? {
         let users = Table("users")
         let id = Expression<Int64>("id")
@@ -117,6 +147,21 @@ public class DatabaseManager {
         return nil
     }
     
+    public func isFollowing(follower: Int64, following: Int64) -> Bool {
+        let relationships = Table("relationships")
+        let idFollowerC = Expression<Int64>("idFollower")
+        let idFollowingC = Expression<Int64>("idFollowing")
+        
+        do {
+            if try db!.scalar(relationships.filter(idFollowerC == follower && idFollowingC == following).count) == 0 {
+                return false
+            }
+            return true
+        } catch {
+            return false
+        }
+    }
+    
     
     public func getUsers(uid: Int64) -> [UserRelationship] {
         var userRelationships: [UserRelationship] = []
@@ -126,10 +171,14 @@ public class DatabaseManager {
         let email = Expression<String>("email")
         let id = Expression<Int64>("id")
         let pictureUrl = Expression<String?>("pictureUrl")
-
+        
         do {
             for user in try db!.prepare(users.filter(id != uid)) {
-                userRelationships.append(UserRelationship(id: user[id], email: user[email], pictureUrl: user[pictureUrl], username: user[username] ?? user[email], name: user[email], type: .not_following))
+                if isFollowing(follower:uid, following:user[id]) == false {
+                    userRelationships.append(UserRelationship(id: user[id], email: user[email], pictureUrl: user[pictureUrl], username: user[username] ?? user[email], name: user[email], type: .not_following))
+                } else {
+                    userRelationships.append(UserRelationship(id: user[id], email: user[email], pictureUrl: user[pictureUrl], username: user[username] ?? user[email], name: user[email], type: .following))
+                }
             }
         } catch {
             print(error)
@@ -153,7 +202,11 @@ public class DatabaseManager {
         
         do {
             for user in try db!.prepare(query.filter(id == uid)) {
-                userRelationships.append(UserRelationship(id: user[id], email: user[email], pictureUrl: user[pictureUrl], username: user[username] ?? user[email], name: user[username] ?? user[email], type: .not_following))
+                if isFollowing(follower: uid, following: user[id]) {
+                    userRelationships.append(UserRelationship(id: user[id], email: user[email], pictureUrl: user[pictureUrl], username: user[username] ?? user[email], name: user[username] ?? user[email], type: .not_following))
+                } else {
+                    userRelationships.append(UserRelationship(id: user[id], email: user[email], pictureUrl: user[pictureUrl], username: user[username] ?? user[email], name: user[username] ?? user[email], type: .following))
+                }
             }
         } catch {
             print("Get Id Error")
@@ -229,6 +282,29 @@ public class DatabaseManager {
                 s.append(
                     UserPost(username: getEmail(uid: post[idUser]), profileUrl: getProfilePicture(uid: post[idUser]), pictureUrl: post[imgUrl], imageUrl: post[imgUrl], thumbnailImage: post[imgUrl])
                 )
+            }
+        } catch {
+            print("Register User Error")
+            print(error)
+        }
+        
+        return s
+    }
+    
+    public func getAllPostsFollowing(uid: Int64) -> [UserPost] {
+        var s: [UserPost] = []
+        
+        do {
+            let posts = Table("posts")
+            let idUser = Expression<Int64>("idUser")
+            let imgUrl = Expression<String>("imgUrl")
+            
+            for post in try db!.prepare(posts) {
+                if isFollowing(follower: uid, following: post[idUser]) {
+                    s.append(
+                        UserPost(username: getEmail(uid: post[idUser]), profileUrl: getProfilePicture(uid: post[idUser]), pictureUrl: post[imgUrl], imageUrl: post[imgUrl], thumbnailImage: post[imgUrl])
+                    )
+                }
             }
         } catch {
             print("Register User Error")

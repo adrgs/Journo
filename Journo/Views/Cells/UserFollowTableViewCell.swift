@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import FirebaseAuth
 
 protocol UserFollowTableViewCellDelegate : AnyObject {
     func didClickFollowUnfollowButton(model: UserRelationship)
@@ -22,7 +23,7 @@ public struct UserRelationship {
     let pictureUrl: String?
     let username: String
     let name: String
-    let type: FollowState
+    var type: FollowState
 }
 
 class UserFollowTableViewCell: UITableViewCell {
@@ -67,12 +68,12 @@ class UserFollowTableViewCell: UITableViewCell {
         profileImageView.sd_setImage(with: URL(string:model.pictureUrl ?? "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png"), completed: nil)
         if model.type == .not_following {
             followButton.setTitle("Follow", for: .normal)
-            followButton.setTitleColor(.label, for: .normal)
+            followButton.setTitleColor(.white, for: .normal)
             followButton.backgroundColor = .link
             followButton.layer.borderWidth = 0
         } else {
             followButton.setTitle("Unfollow", for: .normal)
-            followButton.setTitleColor(.white, for: .normal)
+            followButton.setTitleColor(.label, for: .normal)
             followButton.backgroundColor = .systemBackground
             followButton.layer.borderWidth = 1
             followButton.layer.borderColor = UIColor.label.cgColor
@@ -93,6 +94,25 @@ class UserFollowTableViewCell: UITableViewCell {
     @objc private func didClickFollowButton() {
         guard let model = model else {
             return
+        }
+        if model.type == .not_following {
+            followButton.setTitle("Unfollow", for: .normal)
+            followButton.setTitleColor(.label, for: .normal)
+            followButton.backgroundColor = .systemBackground
+            followButton.layer.borderWidth = 1
+            followButton.layer.borderColor = UIColor.label.cgColor
+            self.model!.type = .following
+            
+            DatabaseManager.shared.follow(idFollower: DatabaseManager.shared.getId(email: Auth.auth().currentUser!.email!), idFollowing: model.id!)
+            
+        } else {
+            followButton.setTitle("Follow", for: .normal)
+            followButton.setTitleColor(.white, for: .normal)
+            followButton.backgroundColor = .link
+            followButton.layer.borderWidth = 0
+            self.model!.type = .not_following
+            
+            DatabaseManager.shared.unfollow(idFollower: DatabaseManager.shared.getId(email: Auth.auth().currentUser!.email!), idFollowing: model.id!)
         }
         delegate?.didClickFollowUnfollowButton(model: model)
     }

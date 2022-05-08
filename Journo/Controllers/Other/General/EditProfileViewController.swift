@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 struct EditProfileFormModel {
     let label: String
@@ -93,7 +94,20 @@ final class EditProfileViewController: UIViewController {
     }
     
     @objc private func didClickProfilePhotoButton() {
-        
+        ImagePickerManager().pickImage(self){ image in
+            
+            StorageManager.shared.uploadMedia(image: image) {url in
+                if url != nil {
+                    
+                    let uid = DatabaseManager.shared.getId(email: Auth.auth().currentUser!.email!)
+                    let postid = DatabaseManager.shared.updateProfilePicture(uid: uid, url: url!)
+                    
+                } else {
+                    
+                }
+            }
+            
+        }
     }
     
     @objc private func didClickSave() {
@@ -140,7 +154,7 @@ final class EditProfileViewController: UIViewController {
 
 extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource, FormTableViewCellDelegate {
     func formTableViewCell(_ cell: FormTableViewCell, didUpdateField updatedModel: EditProfileFormModel) {
-
+        DatabaseManager.shared.updateColumnUser(uid: DatabaseManager.shared.getId(email: Auth.auth().currentUser!.email!), col: updatedModel.label.lowercased(), value: updatedModel.value)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

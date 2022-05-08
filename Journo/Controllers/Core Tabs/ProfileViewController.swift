@@ -145,15 +145,15 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     }
     
     func profileHeaderDidClickFollowersButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewController(data:[])
+        let vc = ListViewController(data:DatabaseManager.shared.getFollowers(uid: DatabaseManager.shared.getId(email: Auth.auth().currentUser!.email!)))
         vc.title = "Followers"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func profileHeaderDidClickFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewController(data:[])
-        vc.title = "Followers"
+        let vc = ListViewController(data:DatabaseManager.shared.getFollowing(id: DatabaseManager.shared.getId(email: Auth.auth().currentUser!.email!)))
+        vc.title = "Following"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
