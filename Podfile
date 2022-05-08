@@ -9,6 +9,7 @@ target 'Journo' do
   # Pods for Journo
   pod 'Appirater'
   pod 'SDWebImage'
+  pod 'SQLite.swift'
 
   pod 'Firebase/Core'
   pod 'Firebase/Auth'

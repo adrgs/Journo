@@ -136,6 +136,9 @@ PODS:
   - SDWebImage (5.12.5):
     - SDWebImage/Core (= 5.12.5)
   - SDWebImage/Core (5.12.5)
+  - SQLite.swift (0.13.3):
+    - SQLite.swift/standard (= 0.13.3)
+  - SQLite.swift/standard (0.13.3)
 
 DEPENDENCIES:
   - Appirater
@@ -146,6 +149,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - SDWebImage
+  - SQLite.swift
 
 SPEC REPOS:
   trunk:
@@ -172,6 +176,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SDWebImage
+    - SQLite.swift
 
 SPEC CHECKSUMS:
   Appirater: 44a4651f7912a17dc906b655f0c215d5bb768b84
@@ -197,7 +202,8 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
   SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
+  SQLite.swift: 903bfa3bc9ab06345fdfbb578e34f47cfcf417da
 
-PODFILE CHECKSUM: dd0e94777161a78851d9950d59204f19dd5fd25b
+PODFILE CHECKSUM: 754a40827f0c749a7841778b99241d28ecdb5bc7
 
 COCOAPODS: 1.11.3
