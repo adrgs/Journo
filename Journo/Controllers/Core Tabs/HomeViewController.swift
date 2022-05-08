@@ -67,6 +67,9 @@ class HomeViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         DatabaseManager.shared.initDatabase()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
@@ -79,8 +82,7 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         handleNotAuthenticated()
         decodeAPI()
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.reloadData()
     }
     
     private func handleNotAuthenticated() {
@@ -100,12 +102,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("PostDataCount \(postData.count)")
         return postData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UserFollowTableViewCell.identifier, for: indexPath) as! FeedPostTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: FeedPostTableViewCell.identifier, for: indexPath) as! FeedPostTableViewCell
         cell.configure(model: postData[indexPath.row])
         print(postData[indexPath.row].username)
         return cell
@@ -113,10 +114,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let model = postData[indexPath.row]
+        let _ = postData[indexPath.row]
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        return 60
     }
 }
