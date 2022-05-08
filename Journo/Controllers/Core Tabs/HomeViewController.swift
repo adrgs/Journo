@@ -18,6 +18,7 @@ public struct Post:Codable{
 
 public struct UserPost {
     let username: String
+    let profileUrl: String?
     let pictureUrl: String
     let imageUrl: String
     let thumbnailImage: String
@@ -28,7 +29,7 @@ class HomeViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: FeedPostTableViewCell.identifier)
+        tableView.register(FeedPostTableViewCell.self, forCellReuseIdentifier: FeedPostTableViewCell.identifier)
         
         return tableView
     }()
@@ -47,7 +48,8 @@ class HomeViewController: UIViewController {
                 do{
                     let tasks = try decoder.decode([Post].self, from: data)
                     tasks.forEach{ i in
-                        self.postData.append(UserPost(username: i.id, pictureUrl: i.url, imageUrl: i.url, thumbnailImage: i.url))
+                        self.postData.append(UserPost(username: i.id, profileUrl: i.url, pictureUrl: i.url, imageUrl: i.url, thumbnailImage: i.url))
+                        print(self.postData.count)
                     }
                 }catch{
                     print(error)
@@ -62,11 +64,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
-        DatabaseManager.shared.initDatabase()
         
-        decodeAPI()
+        view.backgroundColor = .systemBackground
+        DatabaseManager.shared.initDatabase()
         // Do any additional setup after loading the view.
     }
     
@@ -78,6 +78,9 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         handleNotAuthenticated()
+        decodeAPI()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     private func handleNotAuthenticated() {
@@ -97,17 +100,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        print("PostDataCount \(postData.count)")
+        return postData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FeedPostTableViewCell.identifier, for: indexPath) as! FeedPostTableViewCell
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: UserFollowTableViewCell.identifier, for: indexPath) as! FeedPostTableViewCell
+        cell.configure(model: postData[indexPath.row])
+        print(postData[indexPath.row].username)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // data[indexPath.section][indexPath.row].handler()
+        let model = postData[indexPath.row]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 600
     }
 }

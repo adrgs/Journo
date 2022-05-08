@@ -227,7 +227,7 @@ public class DatabaseManager {
             
             for post in try db!.prepare(posts) {
                 s.append(
-                    UserPost(username: getEmail(uid: post[idUser]), pictureUrl: post[imgUrl], imageUrl: post[imgUrl], thumbnailImage: post[imgUrl])
+                    UserPost(username: getEmail(uid: post[idUser]), profileUrl: getProfilePicture(uid: post[idUser]), pictureUrl: post[imgUrl], imageUrl: post[imgUrl], thumbnailImage: post[imgUrl])
                 )
             }
         } catch {
@@ -248,7 +248,7 @@ public class DatabaseManager {
             
             for post in try db!.prepare(posts.filter(idUser == uid)) {
                 s.append(
-                    UserPost(username: getEmail(uid: post[idUser]), pictureUrl: post[imgUrl], imageUrl: post[imgUrl], thumbnailImage: post[imgUrl])
+                    UserPost(username: getEmail(uid: post[idUser]), profileUrl: getProfilePicture(uid: post[idUser]), pictureUrl: post[imgUrl], imageUrl: post[imgUrl], thumbnailImage: post[imgUrl])
                 )
             }
         } catch {
