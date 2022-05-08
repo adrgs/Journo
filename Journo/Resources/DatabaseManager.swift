@@ -100,6 +100,24 @@ public class DatabaseManager {
         return "invalid email"
     }
     
+    public func getProfilePicture(uid: Int64) -> String? {
+        let users = Table("users")
+        let id = Expression<Int64>("id")
+        let pictureUrl = Expression<String?>("pictureUrl")
+        
+        do {
+            for user in try db!.prepare(users.filter(id == uid)) {
+                return user[pictureUrl]
+            }
+        } catch {
+            print("Get Id Error")
+            print(error)
+        }
+        
+        return nil
+    }
+    
+    
     public func getUsers(uid: Int64) -> [UserRelationship] {
         var userRelationships: [UserRelationship] = []
         

@@ -22,7 +22,9 @@ class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     
     private let profilePhotoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
+        imageView.layer.masksToBounds = true
+        imageView.backgroundColor = .secondarySystemBackground
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -106,6 +108,12 @@ class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         let profilePhotoSize = width / 4.0
         let buttonHeight = profilePhotoSize / 2.0
         let countButtonWidth = (width - 10 - profilePhotoSize) / 3
+        
+        let url = DatabaseManager.shared.getProfilePicture(uid: DatabaseManager.shared.getId(email: Auth.auth().currentUser!.email!)) ?? "https://www.stignatius.co.uk/wp-content/uploads/2020/10/default-user-icon.jpg"
+        
+        print("URL:")
+        print(url)
+        profilePhotoImageView.sd_setImage(with: URL(string:url))
         
         profilePhotoImageView.frame = CGRect(x: 5, y: 5, width: profilePhotoSize, height: profilePhotoSize).integral
         profilePhotoImageView.layer.cornerRadius = profilePhotoSize / 2
