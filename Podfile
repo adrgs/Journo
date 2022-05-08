@@ -10,6 +10,7 @@ target 'Journo' do
   pod 'Appirater'
   pod 'SDWebImage'
   pod 'SQLite.swift'
+  pod 'GoogleSignIn'
 
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
