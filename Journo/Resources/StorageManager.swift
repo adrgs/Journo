@@ -7,15 +7,41 @@
 
 import Foundation
 import FirebaseStorage
+import FirebaseAuth
 
 public class StorageManager {
     static let shared = StorageManager()
     
     private let bucket = Storage.storage().reference()
     
-    public func uploadUserPost(model: UserPost, completion: (Result<URL, Error>) -> Void) {
-        
+    func randomString(length: Int) -> String {
+      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      return String((0..<length).map{ _ in letters.randomElement()! })
     }
+    
+    public func uploadMedia(image: UIImage, completion: @escaping (_ url: String?) -> Void) {
+
+       let storageRef = Storage.storage().reference().child("\(Auth.auth().currentUser?.uid ?? "")\(randomString(length: 10)).png")
+       if let uploadData = image.jpegData(compressionQuality: 0.5) {
+           storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+               if error != nil {
+                   print("error")
+                   completion(nil)
+               } else {
+
+                   storageRef.downloadURL(completion: { (url, error) in
+
+                       completion(url?.absoluteString)
+                   })
+
+                 //  completion((metadata?.downloadURL()?.absoluteString)!))
+                   // your uploaded photo url.
+
+
+               }
+           }
+       }
+   }
     
     public enum StorageManagerError: Error {
         case failedToDownload

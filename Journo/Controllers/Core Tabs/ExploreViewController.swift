@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ExploreViewController: UIViewController {
 
@@ -23,8 +24,10 @@ class ExploreViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+        
         navigationController?.navigationBar.topItem?.titleView = searchBar
         
+        /*
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -39,6 +42,19 @@ class ExploreViewController: UIViewController {
         }
         
         view.addSubview(collectionView)
+        //vc.view.frame = CGRect(x: 0, y: searchBar.bottom, width: collectionView.width, height: collectionView.height)
+         */
+        
+        let uid = DatabaseManager.shared.getId(email: Auth.auth().currentUser!.email!)
+        
+        let data = DatabaseManager.shared.getUsers(uid: uid)
+        
+        let vc = ListViewController(data: data)
+        
+        vc.view.frame = view.bounds
+        view.addSubview(vc.view)
+        addChild(vc)
+        vc.didMove(toParent: self)
         
         // Do any additional setup after loading the view.
     }

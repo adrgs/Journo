@@ -119,9 +119,13 @@ class RegisterViewController: UIViewController {
         AuthManager.shared.registerNewUser(username: username, email: email, password: password) { registered in
             DispatchQueue.main.async {
                 if registered {
-                    
+                    self.dismiss(animated: true)
                 } else {
+                    let alert = UIAlertController(title: "Register Error", message: "Unable to register", preferredStyle: .alert)
                     
+                    alert.addAction(UIAlertAction(title:"Dismiss", style: .cancel, handler: nil))
+                    
+                    self.present(alert, animated: true)
                 }
             }
         }

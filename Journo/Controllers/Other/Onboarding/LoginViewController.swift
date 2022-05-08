@@ -237,19 +237,15 @@ class LoginViewController: UIViewController {
             if let profiledata = user.profile {
                 
                 let userId : String = user.userID ?? ""
-                let givenName : String = profiledata.givenName ?? ""
-                let familyName : String = profiledata.familyName ?? ""
+                // let givenName : String = profiledata.givenName ?? ""
+                // let familyName : String = profiledata.familyName ?? ""
                 let email : String = profiledata.email
+                var absoluteurl : String?
                 
                 if let imgurl = user.profile?.imageURL(withDimension: 100) {
-                    let absoluteurl : String = imgurl.absoluteString
+                    absoluteurl = imgurl.absoluteString
                     //HERE CALL YOUR SERVER API
-                    print(absoluteurl)
                 }
-                print(userId)
-                print(givenName)
-                print(familyName)
-                print(email)
                 
                 let authentication = user.authentication
                 guard let idToken = authentication.idToken else {
@@ -266,6 +262,7 @@ class LoginViewController: UIViewController {
                       
                       self.present(alert, animated: true)
                   } else {
+                      let _ = DatabaseManager.shared.registerUser(username: userId, email: email, website: nil, bio: nil, phone: nil, gender: nil, pictureUrl: absoluteurl)
                       self.dismiss(animated:true, completion: nil)
                   }
                 }

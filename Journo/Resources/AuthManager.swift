@@ -30,9 +30,11 @@ public class AuthManager {
                             return
                         }
                     }
+                    completion(true)
                 }
             } else {
                 completion(false)
+                return
             }
         }
     }

@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        DatabaseManager.shared.initDatabase()
         // Do any additional setup after loading the view.
     }
     
